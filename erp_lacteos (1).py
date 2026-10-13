@@ -1245,7 +1245,7 @@ def bloque_destinos():
             opts = etiquetas(activos)
             with st.form("f_del_dest"):
                 sel_e = st.selectbox("Destino a eliminar", list(opts), format_func=opts.get)
-                ok_e = st.checkbox("Confirmo que quiero eliminarlo", key="ok_del_dest")
+                ok_e = st.checkbox("Confirmo que quiero eliminarlo", key="ok_baja_dest")
                 if st.form_submit_button("Eliminar destino"):
                     if not ok_e:
                         st.error("Marca la casilla de confirmación.")
@@ -1447,12 +1447,21 @@ def pag_produccion():
             {"insumo": "Azúcar", "label": "Azúcar (g)", "step": 1.0},
             {"insumo": "Cultivo", "label": "Cultivo (g)", "step": 1.0},
         ]
+    elif "queso" in p_lower:
+        insumos_config = [
+            {"insumo": "Cloruro de calcio", "label": "Cloruro de calcio (g)", "step": 1.0},
+            {"insumo": "Cultivo", "label": "Cultivo (g)", "step": 1.0},
+            {"insumo": "Conservante", "label": "Conservante (g)", "step": 1.0},
+            {"insumo": "Cuajo", "label": "Cuajo (g)", "step": 1.0},
+            {"insumo": "Cloruro de sodio", "label": "Cloruro de sodio (g)", "step": 10.0},
+        ]
     else:
         insumos_config = [
             {"insumo": "Cloruro de calcio", "label": "Cloruro de calcio (g)", "step": 1.0},
             {"insumo": "Cultivo", "label": "Cultivo (g)", "step": 1.0},
             {"insumo": "Conservante", "label": "Conservante (g)", "step": 1.0},
             {"insumo": "Cuajo", "label": "Cuajo (g)", "step": 1.0},
+            {"insumo": "Cloruro de sodio", "label": "Cloruro de sodio (g)", "step": 10.0},
         ]
 
     with st.form("f_prod_reg", clear_on_submit=True):
